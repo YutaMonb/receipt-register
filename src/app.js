@@ -1,8 +1,14 @@
-'use stirct';
+"use stirct";
 
-const fs = require('fs');
+const fs = require("fs");
 
+/**
+ * 
+ * @param {string} path 
+ * @param {Array} callback 
+ */
 const getFiles = (path, callback) => {
+  const imageList = [];
   fs.readdir(path, { withFileTypes: true }, (err, dirents) => {
     if (err) {
       console.error(err);
@@ -11,8 +17,9 @@ const getFiles = (path, callback) => {
 
     dirents.forEach(dirent => {
       if (!dirent.name.match(/(\.jpeg|\.jpg|\.png)/i)) return;
-      callback(dirent.name);
+      imageList.push(dirent.name);
     });
+    callback(imageList);
   });
 };
 
