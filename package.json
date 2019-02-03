@@ -1,0 +1,13 @@
+{
+  "name": "receipt-register",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "repository": "git@github.com:YutaMonb/receipt-register.git",
+  "author": "yutamonb <yutamonb@gmail.com>",
+  "license": "GPLv3",
+  "dependencies": {
+    "mongoose": "^5.4.9",
+    "opener": "^1.5.1",
+    "prompts": "^2.0.1"
+  }
+}
