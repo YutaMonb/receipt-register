@@ -7,6 +7,7 @@
   "license": "GPLv3",
   "dependencies": {
     "mongoose": "^5.4.9",
-    "opener": "^1.5.1"
+    "opener": "^1.5.1",
+    "prompts": "^2.0.1"
   }
 }

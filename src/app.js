@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const opener = require("opener");
+const prompts = require("prompts");
 
 /**
  *
@@ -27,9 +28,19 @@ const getDirFiles = path =>
 async function main() {
   const files = await getDirFiles(process.argv[2]);
 
-  files.forEach(file => {
+  for (const file of files) {
     opener(process.argv[2] + "/" + file);
-  });
+    const price = await prompts({
+      type: "number",
+      name: "date",
+      message: "料金"
+    });
+
+    const type = await prompts({
+      type: "string"
+    })
+    
+  }
 }
 
 main();
