@@ -17,7 +17,7 @@ const getDirFiles = path =>
       }
 
       dirents.forEach(dirent => {
-        if (!dirent.name.match(/(\.jpeg|\.jpg|\.png)/i)) return;
+        if (!dirent.name.match(/(\.jpeg|\.jpg|\.png|.pdf)/i)) return;
         imageList.push(dirent.name);
       });
       resolve(imageList);
