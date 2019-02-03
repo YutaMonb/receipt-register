@@ -4,6 +4,7 @@ const fs = require("fs");
 const opener = require("opener");
 const prompts = require("prompts");
 const Receipt = require("./db");
+
 /**
  *
  * @param {string} path
@@ -26,7 +27,7 @@ const getDirFiles = path =>
   });
 
 async function main() {
-  const files = await getDirFiles(process.argv[2]);
+  const files = await getDirFiles("./data/backlog");
   const type = [
     "租税公課",
     "荷造運賃",
@@ -50,7 +51,7 @@ async function main() {
   ];
 
   for (const file of files) {
-    opener(process.argv[2] + "/" + file);
+    opener(`./data/backlog/${file}`);
     console.log(type);
 
     let confirm = false;
@@ -77,7 +78,6 @@ async function main() {
       console.log(result);
     }
 
-
     const receipt = new Receipt();
 
     receipt.imageid = file;
@@ -89,6 +89,12 @@ async function main() {
         return;
       }
       console.log("success");
+    });
+    fs.rename(`./data/backlog/${file}`, `./data/done/${file}`, err => {
+      if (err) {
+        console.log(err);
+        return;
+      }
     });
   }
 }
