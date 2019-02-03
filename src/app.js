@@ -7,7 +7,7 @@ const opener = require("opener");
  *
  * @param {string} path
  */
-const getDirFiles = async path =>
+const getDirFiles = path =>
   new Promise(resolve => {
     const imageList = [];
     fs.readdir(path, { withFileTypes: true }, (err, dirents) => {
