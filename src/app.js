@@ -3,7 +3,7 @@
 const fs = require("fs");
 const opener = require("opener");
 const prompts = require("prompts");
-
+const Receipt = require("./db");
 /**
  *
  * @param {string} path
@@ -76,6 +76,20 @@ async function main() {
       if (result.confirmed) confirm = true;
       console.log(result);
     }
+
+
+    const receipt = new Receipt();
+
+    receipt.imageid = file;
+    receipt.price = result.price;
+    receipt.type = result.type;
+    receipt.save(err => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log("success");
+    });
   }
 }
 
