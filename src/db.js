@@ -7,7 +7,6 @@ let Schema = mongoose.Schema;
 
 let Receipt = new Schema({
   imageid: { type: String, require: true }, // 画像ファイル名
-  date: { type: Number, required: true }, // レシートに記載されている時間
   price: { type: Number, required: true }, //料金
   type: {
     type: String,
