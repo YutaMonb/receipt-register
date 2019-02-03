@@ -6,6 +6,7 @@
   "author": "yutamonb <yutamonb@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
+    "mongoose": "^5.4.9",
     "opener": "^1.5.1"
   }
 }

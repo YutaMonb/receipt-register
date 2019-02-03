@@ -1,7 +1,6 @@
 "use strict";
 
 let mongoose = require("mongoose");
-require("mongoose-double")(mongoose);
 mongoose.connect("mongodb://localhost/tax", { useNewUrlParser: true });
 
 let Schema = mongoose.Schema;
