@@ -27,19 +27,55 @@ const getDirFiles = path =>
 
 async function main() {
   const files = await getDirFiles(process.argv[2]);
+  const type = [
+    "租税公課",
+    "荷造運賃",
+    "水道光熱費",
+    "旅費交通費",
+    "通信費",
+    "広告宣伝費",
+    "接待交際費",
+    "損害保険料",
+    "修繕費",
+    "消耗品費",
+    "減価償却費",
+    "福利厚生費",
+    "給料賃金",
+    "外注工賃",
+    "利子割引料",
+    "地代家賃",
+    "貸倒金",
+    "雑費",
+    "会議費"
+  ];
 
   for (const file of files) {
     opener(process.argv[2] + "/" + file);
-    const price = await prompts({
-      type: "number",
-      name: "date",
-      message: "料金"
-    });
+    console.log(type);
 
-    const type = await prompts({
-      type: "string"
-    })
-    
+    let confirm = false;
+
+    while (!confirm) {
+      var result = await prompts([
+        {
+          type: "number",
+          name: "price",
+          message: "料金"
+        },
+        {
+          type: "text",
+          name: "type",
+          message: "科目"
+        },
+        {
+          type: "confirm",
+          name: "confirmed",
+          message: "Can you confirm?"
+        }
+      ]);
+      if (result.confirmed) confirm = true;
+      console.log(result);
+    }
   }
 }
 
