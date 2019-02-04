@@ -88,7 +88,7 @@ async function main() {
         console.log(err);
         return;
       }
-      console.log("success");
+      console.log("db save success\n");
     });
     fs.rename(`./data/backlog/${file}`, `./data/done/${file}`, err => {
       if (err) {
