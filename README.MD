@@ -6,14 +6,16 @@
 
 ダウンロードしてきて data ディレクトリを作り、中に backlog と done ディレクトリを作る
 
-![](https://i.imgur.com/yinyYJz.png)
-backlog にレシート画像を入れる
+data/backlog にレシート画像を入れる
 
 mongodb を起動する
 
 ```
 npm run start
-or
-yarn run start
 
+```
+
+Mongoの中身をJsonで吐き出したいとき
+```
+npm run output
 ```
