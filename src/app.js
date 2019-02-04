@@ -96,6 +96,8 @@ async function main() {
       }
     });
   }
+  console.log("お疲れ様！！！");
+  process.exit(0);
 }
 
 main();
