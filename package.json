@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "output": "node src/output.js"
+    "output": "node src/output.js",
+    "tax": "node src/tax.js"
   }
 }
