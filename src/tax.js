@@ -4,9 +4,13 @@ const fs = require('fs');
 
 fs.readFile('./data/output.json', (err, data) => {
   const json = JSON.parse(data);
-  let total = 0;
+  
+  let map = new Map();
   json.forEach(element => {
-    total += element.price;
+    if(!map.has(element.type)) {
+      map.set(element.type, 0);
+    }
+    map.set(element.type, map.get(element.type) + element.price);
   });
-  console.log(total);
+  console.log(map);
 });
