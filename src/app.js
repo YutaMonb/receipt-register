@@ -54,10 +54,8 @@ async function main() {
     opener(`./data/backlog/${file}`);
     console.log(type);
 
-    let confirm = false;
-
-    while (!confirm) {
-      var result = await prompts([
+    while (true) {
+      const result = await prompts([
         {
           type: "number",
           name: "price",
@@ -74,8 +72,8 @@ async function main() {
           message: "Can you confirm?"
         }
       ]);
-      if (result.confirmed) confirm = true;
       console.log(result);
+      if (result.confirmed) break
     }
 
     const receipt = new Receipt();
@@ -96,7 +94,6 @@ async function main() {
       }
     });
   }
-  console.log("お疲れ様！！！");
   process.exit(0);
 }
 

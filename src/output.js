@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 mongoose.connect("mongodb://localhost/tax", { useNewUrlParser: true });
 
-let connection = mongoose.connection;
+const connection = mongoose.connection;
 
 connection.once("open", function() {
   connection.db.collection("receipts", (err, collection) => {
